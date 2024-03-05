@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Yathzee singleplayer</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <meta charset="UTF-8" />
+    <meta name="author" content="Lilith" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="Styles.css" />
+  </head>
+  <body>
+    <div class="flexContainerTop">
+      <div
+        id="help"
+        class="dropDown"
+        onmouseover="showMenu()"
+        onmouseout="hideMenu()"
+      >
+        ?
+        <div id="dropdownMenu" class="dropdownContent">
+          <ul>
+            <li>Click yathzee to reset the game</li>
+            <li>Click a dice to hold it</li>
+            <li>Click roll dice to roll the dice</li>
+            <li>Click a white space under score to add a score</li>
+          </ul>
+        </div>
+      </div>
+      <div id="titel">
+        <a id="resetButton">Yathzee</a>
+      </div>
+      <div id="spacer"></div>
+    </div>
+    <div id="diceBox">
+      <div class="diceRow">
+        <img
+          class="dice"
+          id="dice1"
+          src="images/dice-six-faces-one.png"
+          alt="First dice"
+        />
+        <img
+          class="dice"
+          id="dice2"
+          src="images/dice-six-faces-one.png"
+          alt="Second dice"
+        />
+        <img
+          class="dice"
+          id="dice3"
+          src="images/dice-six-faces-one.png"
+          alt="Third dice"
+        />
+        <img
+          class="dice"
+          id="dice4"
+          src="images/dice-six-faces-one.png"
+          alt="Fourth dice"
+        />
+        <img
+          class="dice"
+          id="dice5"
+          src="images/dice-six-faces-one.png"
+          alt="Fifth dice"
+        />
+      </div>
+      <p id="throwsLeft">Throws left: 3</p>
+      <div class="throwButton">
+        <button id="rollButton" type="button">Roll dice</button>
+      </div>
+    </div>
+    <div class="scoreSheet">
+      <table>
+        <tr>
+          <th class="textInTable" scope="col"></th>
+          <th class="HowToScore" scope="col">How to score</th>
+          <th class="ScoreTable" scope="col">Score</th>
+          <th class="textInTable" scope="col"></th>
+          <th class="HowToScore" scope="col">How to score</th>
+          <th class="ScoreTable" scope="col">Score</th>
+        </tr>
+        <tr>
+          <td class="textInTable">One's</td>
+          <td class="HowToScore">Count all one's</td>
+          <td class="ScoreTable" id="ones"></td>
+          <td class="textInTable">
+            Three of a kind
+            <p class="bonusPointText">
+              (if the dice show 3 of the same number)
+            </p>
+          </td>
+          <td class="HowToScore">Total of all dice</td>
+          <td class="ScoreTable" id="Toak"></td>
+        </tr>
+        <tr>
+          <td class="textInTable">Two's</td>
+          <td class="HowToScore">Count all two's</td>
+          <td class="ScoreTable" id="twos"></td>
+          <td class="textInTable">
+            Four of a kind
+            <p class="bonusPointText">
+              (if the dice show 4 of the same number)
+            </p>
+          </td>
+          <td class="HowToScore">Total of all dice</td>
+          <td class="ScoreTable" id="Foak"></td>
+        </tr>
+        <tr>
+          <td class="textInTable">Three's</td>
+          <td class="HowToScore">Count all three's</td>
+          <td class="ScoreTable" id="threes"></td>
+          <td class="textInTable">
+            Full house
+            <p class="bonusPointText">
+              (if the dice show 3 of the same number and 2 of the same number)
+            </p>
+          </td>
+          <td class="HowToScore">25 points</td>
+          <td class="ScoreTable" id="FHouse"></td>
+        </tr>
+        <tr>
+          <td class="textInTable">Four's</td>
+          <td class="HowToScore">Count all four's</td>
+          <td class="ScoreTable" id="fours"></td>
+          <td class="textInTable">
+            Sm straight
+            <p class="bonusPointText">
+              (if the 5 dice show any sequence of 4 numbers)
+            </p>
+          </td>
+          <td class="HowToScore">30 points</td>
+          <td class="ScoreTable" id="SmStr"></td>
+        </tr>
+        <tr>
+          <td class="textInTable">Five's</td>
+          <td class="HowToScore">Count all five's</td>
+          <td class="ScoreTable" id="fives"></td>
+          <td class="textInTable">
+            Lg straight
+            <p class="bonusPointText">
+              (if the 5 dice show any sequence of 5 numbers)
+            </p>
+          </td>
+          <td class="HowToScore">40 points</td>
+          <td class="ScoreTable" id="lgStr"></td>
+        </tr>
+        <tr>
+          <td class="textInTable">Sixes</td>
+          <td class="HowToScore">Count all sixes</td>
+          <td class="ScoreTable" id="sixes"></td>
+          <td class="textInTable">
+            Yathzee
+            <p class="bonusPointText">(if the 5 dice are all the same)</p>
+          </td>
+          <td class="HowToScore">50 points</td>
+          <td class="ScoreTable" id="yathz"></td>
+        </tr>
+        <tr>
+          <td class="bonusPoints">
+            Bonus points
+            <p class="bonusPointText">(if the above is more than 63)</p>
+          </td>
+          <td class="bonusAmount">35 points</td>
+          <td class="ScoreTable" id="bonus"></td>
+          <td class="textInTable">
+            Chance
+            <p class="bonusPointText">(Score with any combination)</p>
+          </td>
+          <td class="HowToScore">Total of all dice</td>
+          <td class="ScoreTable" id="chance"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="grandTotal">
+      <h2 id="totalValue">Grand Total: 0</h2>
+    </div>
+    <script src="javascript.js"></script>
+  </body>
+</html>

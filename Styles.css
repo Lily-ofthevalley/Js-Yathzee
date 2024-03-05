@@ -1,0 +1,194 @@
+body {
+  background-color: rgb(231, 231, 231);
+}
+
+#bodyMainPage {
+  overflow: hidden;
+}
+
+.flexContainerTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.flexContainerTop #help {
+  border-radius: 90px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  background-color: lightgray;
+  text-align: center;
+  border: 4px solid gray;
+  font-size: 50px;
+  color: grey;
+}
+
+.flexContainerTop #spacer {
+  border-radius: 90px;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+
+.flexContainerTop #titel {
+  margin: auto;
+  font-size: 75px;
+  background-color: rgb(37, 29, 61);
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 45px;
+  color: white;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modeSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+#dice1,
+#dice2,
+#dice3,
+#dice4,
+#dice5 {
+  height: 70px;
+  width: 70px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.diceRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#throwsLeft,
+#playerTurn {
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+}
+
+.throwButton {
+  display: flex;
+  justify-content: center;
+}
+
+#diceBox {
+  background-color: aliceblue;
+  border: 5px solid rgb(37, 29, 61);
+  padding: 10px;
+  border-radius: 45px;
+  margin: auto;
+  max-width: 50%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 800px;
+}
+
+.textInTable {
+  width: 35%;
+}
+
+.HowToScore,
+.ScoreTable,
+#bonusAmount {
+  width: 7.5%;
+  text-align: center;
+}
+
+.bonusPointText {
+  font-size: 10px;
+}
+
+.scoreSheet {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding: 10px;
+}
+
+.grandTotal {
+  display: flex;
+  background-color: aliceblue;
+  max-width: 200px;
+  border: 3px solid rgb(37, 29, 61);
+  border-radius: 20px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.grandTotalMP {
+  display: flex;
+  background-color: aliceblue;
+  max-width: 300px;
+  border: 3px solid rgb(37, 29, 61);
+  border-radius: 20px;
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+.ScoreTable1,
+.ScoreTable2,
+.HowToScore2,
+#bonusAmount2 {
+  width: 5%;
+  text-align: center;
+}
+
+.dice {
+  border: 2px solid aliceblue;
+  border-radius: 20px;
+}
+
+.held {
+  border: 2px solid rgb(37, 29, 61);
+  border-radius: 20px;
+}
+
+#resetButton {
+  pointer-events: auto;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: lightgray;
+  border: 4px solid gray;
+  border-radius: 20px;
+  z-index: 1;
+}
+
+.dropdownContent li {
+  color: gray;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  text-align: left;
+}

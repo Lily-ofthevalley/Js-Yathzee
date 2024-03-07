@@ -1,8 +1,10 @@
+//Variables
 var throwsLeft = 3;
 var diceNumber = [];
 var heldDice = [false, false, false, false, false];
 var grandTotal = 0;
 
+//These activate all the buttons
 document.getElementById("rollButton").addEventListener("click", rollDice);
 document.getElementById("ones").addEventListener("click", inputOne);
 document.getElementById("twos").addEventListener("click", inputTwo);
@@ -19,6 +21,7 @@ document.getElementById("Foak").addEventListener("click", inputFoak);
 document.getElementById("yathz").addEventListener("click", inputYathzee);
 document.getElementById("resetButton").addEventListener("click", resetAll);
 
+//changes the class of a dice to held
 document.querySelectorAll(".dice").forEach(function (dice, index) {
   dice.addEventListener("click", function () {
     heldDice[index] = !heldDice[index];
@@ -26,6 +29,7 @@ document.querySelectorAll(".dice").forEach(function (dice, index) {
   });
 });
 
+//rolls the dice and doesnt roll the held dice
 function rollDice() {
   for (var i = 0; i < 5; i++) {
     if (!heldDice[i]) {
@@ -59,6 +63,7 @@ function rollDice() {
         break;
     }
   }
+  //reduces the throws left by one and disables rolling dice if there are 0 throws left
   throwsLeft = throwsLeft - 1;
   document.getElementById("throwsLeft").innerHTML =
     "Throws left: " + throwsLeft;
@@ -70,6 +75,7 @@ function rollDice() {
   }
 }
 
+//all these functions allow you to place scores in the right place and calculate the total score
 function inputOne() {
   var counter = 0;
   for (var i = 0; i < 5; i++) {
@@ -281,6 +287,7 @@ function inputYathzee() {
   resetDice();
 }
 
+//resets the dice and rolls the dice
 function resetDice() {
   throwsLeft = 3;
   document.getElementById("throwsLeft").innerHTML =
@@ -290,12 +297,14 @@ function resetDice() {
   rollDice();
 }
 
+//resets the style of the dice
 function resetDiceStyle() {
   document.querySelectorAll(".dice").forEach(function (dice) {
     dice.classList.remove("held");
   });
 }
 
+//resets the entire game so you can play again
 function resetAll() {
   document.getElementById("ones").addEventListener("click", inputOne);
   document.getElementById("twos").addEventListener("click", inputTwo);
@@ -330,6 +339,7 @@ function resetAll() {
   document.getElementById("yathz").innerHTML = "";
 }
 
+//these functions make the info menu appear and disappaer
 function showMenu() {
   document.getElementById("dropdownMenu").style.display = "block";
 }

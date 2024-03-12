@@ -21,6 +21,8 @@ document.getElementById("Foak").addEventListener("click", inputFoak);
 document.getElementById("yathz").addEventListener("click", inputYathzee);
 document.getElementById("resetButton").addEventListener("click", resetAll);
 
+rollDice();
+
 //changes the class of a dice to held
 document.querySelectorAll(".dice").forEach(function (dice, index) {
   dice.addEventListener("click", function () {
@@ -39,30 +41,9 @@ function rollDice() {
 
   for (var i = 0; i < 5; i++) {
     var diceImage = document.getElementById("dice" + (i + 1));
-
-    switch (diceNumber[i]) {
-      case 1:
-        diceImage.src = "images/dice-six-faces-one.png";
-        break;
-      case 2:
-        diceImage.src = "images/dice-six-faces-two.png";
-        break;
-      case 3:
-        diceImage.src = "images/dice-six-faces-three.png";
-        break;
-      case 4:
-        diceImage.src = "images/dice-six-faces-four.png";
-        break;
-      case 5:
-        diceImage.src = "images/dice-six-faces-five.png";
-        break;
-      case 6:
-        diceImage.src = "images/dice-six-faces-six.png";
-        break;
-      default:
-        break;
-    }
+    diceImage.src = "images/dice-six-faces-" + diceNumber[i] + ".png";
   }
+
   //reduces the throws left by one and disables rolling dice if there are 0 throws left
   throwsLeft = throwsLeft - 1;
   document.getElementById("throwsLeft").innerHTML =
@@ -77,10 +58,7 @@ function rollDice() {
 
 //all these functions allow you to place scores in the right place and calculate the total score
 function inputOne() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 1) counter++;
-  }
+  var counter = countDice(1);
   document.getElementById("ones").innerHTML = counter;
   grandTotal = grandTotal + counter;
   document.getElementById("totalValue").innerHTML =
@@ -91,10 +69,7 @@ function inputOne() {
 }
 
 function inputTwo() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 2) counter++;
-  }
+  var counter = countDice(2);
   document.getElementById("twos").innerHTML = counter * 2;
   grandTotal = grandTotal + counter * 2;
   document.getElementById("totalValue").innerHTML =
@@ -105,10 +80,7 @@ function inputTwo() {
 }
 
 function inputThree() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 3) counter++;
-  }
+  var counter = countDice(3);
   document.getElementById("threes").innerHTML = counter * 3;
   grandTotal = grandTotal + counter * 3;
   document.getElementById("totalValue").innerHTML =
@@ -119,10 +91,7 @@ function inputThree() {
 }
 
 function inputFour() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 4) counter++;
-  }
+  var counter = countDice(4);
   document.getElementById("fours").innerHTML = counter * 4;
   grandTotal = grandTotal + counter * 4;
   document.getElementById("totalValue").innerHTML =
@@ -133,10 +102,7 @@ function inputFour() {
 }
 
 function inputFive() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 5) counter++;
-  }
+  var counter = countDice(5);
   document.getElementById("fives").innerHTML = counter * 5;
   grandTotal = grandTotal + counter * 5;
   document.getElementById("totalValue").innerHTML =
@@ -147,10 +113,7 @@ function inputFive() {
 }
 
 function inputSix() {
-  var counter = 0;
-  for (var i = 0; i < 5; i++) {
-    if (diceNumber[i] == 6) counter++;
-  }
+  var counter = countDice(6);
   document.getElementById("sixes").innerHTML = counter * 6;
   grandTotal = grandTotal + counter * 6;
   document.getElementById("totalValue").innerHTML =
@@ -346,4 +309,12 @@ function showMenu() {
 
 function hideMenu() {
   document.getElementById("dropdownMenu").style.display = "none";
+}
+
+function countDice(diceNum) {
+  var counter = 0;
+  for (var i = 0; i < 5; i++) {
+    if (diceNumber[i] == diceNum) counter++;
+  }
+  return counter;
 }
